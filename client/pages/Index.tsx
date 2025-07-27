@@ -21,13 +21,13 @@ import { useEffect } from "react";
 
 export default function Index() {
   const { data: session } = useSession();
-  const router = useRouter();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (session) {
-      router.push('/dashboard');
+      navigate('/dashboard');
     }
-  }, [session, router]);
+  }, [session, navigate]);
 
   if (session) {
     return null; // Will redirect to dashboard
