@@ -8,9 +8,19 @@ import {
 } from "./routes/auth";
 import { getProjects, createProject, deleteProject, deployProject } from "./routes/projects";
 import { handleAIChat } from "./routes/ai-chat";
+import {
+  createCheckoutSessionHandler,
+  createPortalSessionHandler,
+  getSubscriptionHandler,
+  getUsageHandler,
+  webhookHandler
+} from "./routes/billing";
 
 export function createServer() {
   const app = express();
+
+  // Webhook route (before JSON middleware for raw body)
+  app.post("/api/billing/webhook", express.raw({ type: 'application/json' }), webhookHandler);
 
   // Middleware
   app.use(cors());
@@ -37,6 +47,12 @@ export function createServer() {
 
   // AI routes
   app.post("/api/ai/chat", handleAIChat);
+
+  // Billing routes
+  app.post("/api/billing/create-checkout-session", createCheckoutSessionHandler);
+  app.post("/api/billing/create-portal-session", createPortalSessionHandler);
+  app.get("/api/billing/subscription", getSubscriptionHandler);
+  app.get("/api/billing/usage", getUsageHandler);
 
   return app;
 }
