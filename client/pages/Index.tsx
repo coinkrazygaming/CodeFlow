@@ -250,7 +250,7 @@ export default function Index() {
             Join thousands of developers using CodeFlow AI to build faster with AI assistance.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" onClick={() => router.push('/auth/signin')}>
+            <Button size="lg" variant="secondary" onClick={() => navigate('/auth/signin')}>
               Start Building Now
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
