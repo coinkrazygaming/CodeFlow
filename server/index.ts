@@ -15,6 +15,7 @@ import {
   getUsageHandler,
   webhookHandler
 } from "./routes/billing";
+import { getDomains, addDomain, deleteDomain, verifyDomain } from "./routes/domains";
 
 export function createServer() {
   const app = express();
@@ -47,6 +48,12 @@ export function createServer() {
 
   // AI routes
   app.post("/api/ai/chat", handleAIChat);
+
+  // Domain routes
+  app.get("/api/domains", getDomains);
+  app.post("/api/domains", addDomain);
+  app.delete("/api/domains/:domainId", deleteDomain);
+  app.post("/api/domains/:domainId/verify", verifyDomain);
 
   // Billing routes
   app.post("/api/billing/create-checkout-session", createCheckoutSessionHandler);
