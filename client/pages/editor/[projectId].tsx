@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import { useParams } from 'react-router-dom';
 import { ProtectedRoute } from '@/components/auth/protected-route';
 import { Navbar } from '@/components/dashboard/navbar';
 import { VisualEditor } from '@/components/editor/visual-editor';
