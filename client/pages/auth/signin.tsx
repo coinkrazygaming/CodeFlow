@@ -6,15 +6,15 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Github } from 'lucide-react';
 
 export default function SignIn() {
-  const router = useRouter();
+  const navigate = useNavigate();
 
   useEffect(() => {
     getSession().then((session) => {
       if (session) {
-        router.push('/dashboard');
+        navigate('/dashboard');
       }
     });
-  }, [router]);
+  }, [navigate]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center p-4">
