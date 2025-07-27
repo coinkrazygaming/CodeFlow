@@ -15,7 +15,7 @@ import {
   CheckCircle,
   Star
 } from "lucide-react";
-import { useSession } from "next-auth/react";
+import { useSession } from "@/components/providers/auth-provider";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
