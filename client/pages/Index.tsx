@@ -122,7 +122,7 @@ export default function Index() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" onClick={() => router.push('/auth/signin')}>
+              <Button size="lg" onClick={() => navigate('/auth/signin')}>
                 Get Started Free
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
