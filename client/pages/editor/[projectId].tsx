@@ -28,8 +28,7 @@ type EditorTab = 'visual' | 'code' | 'preview';
 type ViewportSize = 'desktop' | 'tablet' | 'mobile';
 
 export default function ProjectEditor() {
-  const router = useRouter();
-  const { projectId } = router.query;
+  const { projectId } = useParams();
   
   const [currentMode, setCurrentMode] = useState<Mode>('dev');
   const [activeTab, setActiveTab] = useState<EditorTab>('visual');
