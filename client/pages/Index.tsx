@@ -16,7 +16,7 @@ import {
   Star
 } from "lucide-react";
 import { useSession } from "next-auth/react";
-import { useRouter } from "next/router";
+import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 export default function Index() {
