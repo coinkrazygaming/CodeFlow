@@ -141,11 +141,11 @@ export function Navbar({ currentMode, onModeChange }: NavbarProps) {
                 </div>
               </DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={() => router.push('/dashboard/billing')}>
+              <DropdownMenuItem onClick={() => navigate('/dashboard/billing')}>
                 <CreditCard className="mr-2 h-4 w-4" />
                 <span>Billing</span>
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => router.push('/dashboard/settings')}>
+              <DropdownMenuItem onClick={() => navigate('/dashboard/settings')}>
                 <Settings className="mr-2 h-4 w-4" />
                 <span>Settings</span>
               </DropdownMenuItem>
