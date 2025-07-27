@@ -1,4 +1,4 @@
-import { signIn, getSession } from 'next-auth/react';
+import { signIn, getSession } from '@/components/providers/auth-provider';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
