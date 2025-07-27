@@ -88,7 +88,7 @@ export function RecentActivity() {
 
   const getActivityIcon = (type: Activity['type']) => {
     switch (type) {
-      case 'deployment': return <Deploy className="h-4 w-4" />;
+      case 'deployment': return <Rocket className="h-4 w-4" />;
       case 'ai_edit': return <Bot className="h-4 w-4" />;
       case 'github_sync': return <GitCommit className="h-4 w-4" />;
       case 'domain_added': return <Globe className="h-4 w-4" />;
