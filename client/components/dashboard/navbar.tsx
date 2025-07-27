@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useSession, signOut } from 'next-auth/react';
+import { useSession, signOut } from '@/components/providers/auth-provider';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
