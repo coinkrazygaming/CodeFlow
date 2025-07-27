@@ -28,7 +28,7 @@ import {
   Settings,
   Trash2,
   GitBranch,
-  Deploy
+  Rocket
 } from 'lucide-react';
 
 type Mode = 'preview' | 'dev' | 'build' | 'production';
