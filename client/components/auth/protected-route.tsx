@@ -1,5 +1,5 @@
 import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/router';
+import { useNavigate } from 'react-router-dom';
 import { useEffect, ReactNode } from 'react';
 import { Loader2 } from 'lucide-react';
 
