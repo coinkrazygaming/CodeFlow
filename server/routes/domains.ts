@@ -1,5 +1,5 @@
 import { RequestHandler } from 'express';
-import { supabaseAdmin } from '@/lib/database';
+import { supabaseAdmin } from '../../lib/database';
 
 export const getDomains: RequestHandler = async (req, res) => {
   try {
