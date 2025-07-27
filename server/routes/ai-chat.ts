@@ -1,5 +1,5 @@
 import { RequestHandler } from 'express';
-import { JoseyAI } from '@/lib/ai';
+import { JoseyAI } from '../../lib/ai';
 
 export const handleAIChat: RequestHandler = async (req, res) => {
   try {
