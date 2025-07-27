@@ -1,5 +1,5 @@
 import { signIn, getSession } from 'next-auth/react';
-import { useRouter } from 'next/router';
+import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
