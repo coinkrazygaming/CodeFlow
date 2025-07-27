@@ -246,7 +246,7 @@ export function ProjectGrid({ currentMode }: ProjectGridProps) {
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
                       <DropdownMenuItem onClick={() => deployProject(project.id)}>
-                        <Deploy className="mr-2 h-4 w-4" />
+                        <Rocket className="mr-2 h-4 w-4" />
                         Deploy
                       </DropdownMenuItem>
                       <DropdownMenuItem>
