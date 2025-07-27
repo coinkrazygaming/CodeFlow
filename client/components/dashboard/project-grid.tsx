@@ -126,7 +126,7 @@ export function ProjectGrid({ currentMode }: ProjectGridProps) {
       case 'preview': return <Eye className="h-4 w-4" />;
       case 'dev': return <GitBranch className="h-4 w-4" />;
       case 'build': return <Settings className="h-4 w-4" />;
-      case 'production': return <Deploy className="h-4 w-4" />;
+      case 'production': return <Rocket className="h-4 w-4" />;
     }
   };
 
