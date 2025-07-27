@@ -6,6 +6,8 @@ import {
   handleRegister,
   handleForgotPassword,
 } from "./routes/auth";
+import { getProjects, createProject, deleteProject, deployProject } from "./routes/projects";
+import { handleAIChat } from "./routes/ai-chat";
 
 export function createServer() {
   const app = express();
@@ -17,7 +19,7 @@ export function createServer() {
 
   // Example API routes
   app.get("/api/ping", (_req, res) => {
-    res.json({ message: "Hello from Express server v2!" });
+    res.json({ message: "Hello from CodeFlow AI!" });
   });
 
   app.get("/api/demo", handleDemo);
@@ -26,6 +28,15 @@ export function createServer() {
   app.post("/api/auth/login", handleLogin);
   app.post("/api/auth/register", handleRegister);
   app.post("/api/auth/forgot-password", handleForgotPassword);
+
+  // Project routes
+  app.get("/api/projects", getProjects);
+  app.post("/api/projects", createProject);
+  app.delete("/api/projects/:projectId", deleteProject);
+  app.post("/api/projects/:projectId/deploy", deployProject);
+
+  // AI routes
+  app.post("/api/ai/chat", handleAIChat);
 
   return app;
 }
