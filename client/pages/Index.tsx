@@ -10,7 +10,7 @@ import {
   BarChart3, 
   Shield,
   Code,
-  Deploy,
+  Rocket,
   Sparkles,
   CheckCircle,
   Star
