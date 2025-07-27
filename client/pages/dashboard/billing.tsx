@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useSession } from 'next-auth/react';
+import { useSession } from '@/components/providers/auth-provider';
 import { ProtectedRoute } from '@/components/auth/protected-route';
 import { Navbar } from '@/components/dashboard/navbar';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
