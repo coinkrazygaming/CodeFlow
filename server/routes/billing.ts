@@ -5,8 +5,8 @@ import {
   getCustomerSubscriptions,
   createOrUpdateCustomer,
   handleWebhook
-} from '@/lib/stripe';
-import { supabaseAdmin } from '@/lib/database';
+} from '../../lib/stripe';
+import { supabaseAdmin } from '../../lib/database';
 
 export const createCheckoutSessionHandler: RequestHandler = async (req, res) => {
   try {
