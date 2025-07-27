@@ -38,7 +38,7 @@ interface NavbarProps {
 
 export function Navbar({ currentMode, onModeChange }: NavbarProps) {
   const { data: session } = useSession();
-  const router = useRouter();
+  const navigate = useNavigate();
   const [aiEditsUsed] = useState(session?.user?.ai_edits_used || 0);
   const isPremium = session?.user?.subscription_tier === 'premium';
 
