@@ -77,7 +77,7 @@ export function Navbar({ currentMode, onModeChange }: NavbarProps) {
               {tools.map((tool) => (
                 <DropdownMenuItem
                   key={tool.name}
-                  onClick={() => router.push(tool.href)}
+                  onClick={() => navigate(tool.href)}
                   className="gap-2"
                 >
                   <tool.icon className="h-4 w-4" />
