@@ -229,7 +229,7 @@ export default function Index() {
                   <Button 
                     className="w-full" 
                     variant={plan.popular ? "default" : "outline"}
-                    onClick={() => router.push('/auth/signin')}
+                    onClick={() => navigate('/auth/signin')}
                   >
                     {plan.button}
                   </Button>
