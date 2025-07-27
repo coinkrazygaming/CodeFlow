@@ -17,7 +17,7 @@ import {
   Share,
   Settings,
   GitBranch,
-  Deploy,
+  Rocket,
   Smartphone,
   Monitor,
   Tablet
