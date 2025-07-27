@@ -1,4 +1,4 @@
-import { useSession } from 'next-auth/react';
+import { useSession } from '@/components/providers/auth-provider';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, ReactNode } from 'react';
 import { Loader2 } from 'lucide-react';
