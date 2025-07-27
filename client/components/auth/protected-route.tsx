@@ -9,15 +9,15 @@ interface ProtectedRouteProps {
 
 export function ProtectedRoute({ children }: ProtectedRouteProps) {
   const { data: session, status } = useSession();
-  const router = useRouter();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (status === 'loading') return; // Still loading
 
     if (!session) {
-      router.push('/auth/signin');
+      navigate('/auth/signin');
     }
-  }, [session, status, router]);
+  }, [session, status, navigate]);
 
   if (status === 'loading') {
     return (
