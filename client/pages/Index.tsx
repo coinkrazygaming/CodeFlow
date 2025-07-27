@@ -45,7 +45,7 @@ export default function Index() {
       description: "Drag-and-drop interface synced with professional code editor"
     },
     {
-      icon: Deploy,
+      icon: Rocket,
       title: "One-Click Deployment",
       description: "Deploy to production with Preview → Build → Production pipeline"
     },
