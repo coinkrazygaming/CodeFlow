@@ -1,6 +1,6 @@
 import { RequestHandler } from 'express';
-import { supabaseAdmin } from '@/lib/database';
-import { GitHubService } from '@/lib/github';
+import { supabaseAdmin } from '../../lib/database';
+import { GitHubService } from '../../lib/github';
 
 export const getProjects: RequestHandler = async (req, res) => {
   try {
