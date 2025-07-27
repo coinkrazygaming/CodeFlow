@@ -193,7 +193,7 @@ export default App;`,
                   Share
                 </Button>
                 <Button size="sm">
-                  <Deploy className="h-4 w-4 mr-1" />
+                  <Rocket className="h-4 w-4 mr-1" />
                   Deploy
                 </Button>
               </div>
