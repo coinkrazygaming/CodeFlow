@@ -44,32 +44,32 @@ export default function Index() {
     {
       icon: Bot,
       title: "Josey AI Assistant",
-      description: "Step-by-step coding help, debugging, and full app generation from prompts"
+      description: "Real-time code generation, debugging, and intelligent suggestions with auto-execution after 5 seconds"
     },
     {
       icon: Code,
-      title: "Visual Editor + Monaco",
-      description: "Drag-and-drop interface synced with professional code editor"
-    },
-    {
-      icon: Rocket,
-      title: "One-Click Deployment",
-      description: "Deploy to production with Preview → Build → Production pipeline"
+      title: "Live Code Editor",
+      description: "Professional Monaco editor with AI-powered completions and instant error detection"
     },
     {
       icon: Github,
       title: "GitHub Integration",
-      description: "Import repos, create pull requests, and sync code seamlessly"
+      description: "Connect repos, auto-setup CI/CD pipelines, and create pull requests with one click"
     },
     {
-      icon: Globe,
-      title: "Custom Domains",
-      description: "Professional domains with clean8.online integration"
+      icon: Sparkles,
+      title: "Quick Start Templates",
+      description: "Generate full-stack apps, websites, videos, and designs from simple prompts"
+    },
+    {
+      icon: Rocket,
+      title: "Instant Deployment",
+      description: "Live preview, version snapshots, and automated deployment with rollback capabilities"
     },
     {
       icon: BarChart3,
-      title: "Advanced Analytics",
-      description: "Track performance, usage, and user engagement"
+      title: "Smart Logging",
+      description: "Detailed action logs, error tracking, and project state management with recovery options"
     }
   ];
 
