@@ -129,12 +129,12 @@ export default function Index() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" onClick={() => navigate('/auth/signin')}>
-                Get Started Free
+              <Button size="lg" onClick={() => setShowAIWorkspace(true)}>
+                Start Building Now
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button variant="outline" size="lg">
-                Watch Demo
+              <Button variant="outline" size="lg" onClick={() => navigate('/auth/signin')}>
+                Sign In
               </Button>
             </div>
 
