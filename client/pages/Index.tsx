@@ -117,15 +117,15 @@ export default function Index() {
             </Badge>
             
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-              Build & Deploy with
+              Code with
               <span className="bg-gradient-to-r from-brand-500 to-brand-700 bg-clip-text text-transparent">
-                {" "}AI Assistance
+                {" "}Josey AI
               </span>
             </h1>
-            
+
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              CodeFlow AI is the complete platform for building, deploying, and scaling applications. 
-              Get step-by-step coding help from Josey AI, manage your projects, and deploy with one click.
+              The AI-powered development workspace that writes code, fixes bugs, and deploys your projects.
+              Start building instantly with our intelligent assistant that learns and adapts to your coding style.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
