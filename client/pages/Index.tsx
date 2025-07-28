@@ -141,15 +141,15 @@ export default function Index() {
             <div className="flex items-center justify-center gap-8 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
                 <CheckCircle className="h-4 w-4 text-green-500" />
-                Free trial
+                AI Code Generation
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="h-4 w-4 text-green-500" />
-                No credit card
+                Live Code Editor
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="h-4 w-4 text-green-500" />
-                25 AI edits included
+                Instant Deploy
               </div>
             </div>
           </div>
