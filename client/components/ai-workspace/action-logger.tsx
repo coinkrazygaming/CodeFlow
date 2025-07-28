@@ -1,22 +1,28 @@
-import React, { useState } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { ScrollArea } from '@/components/ui/scroll-area';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { 
-  FileText, 
-  MessageSquare, 
-  Code, 
-  AlertTriangle, 
+import React, { useState } from "react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  FileText,
+  MessageSquare,
+  Code,
+  AlertTriangle,
   Sparkles,
   Clock,
   CheckCircle,
   XCircle,
   Download,
   Search,
-  Filter
-} from 'lucide-react';
+  Filter,
+} from "lucide-react";
 
 interface ActionLoggerProps {
   actions: any[];
@@ -24,40 +30,55 @@ interface ActionLoggerProps {
 
 export function ActionLogger({ actions }: ActionLoggerProps) {
   const [isVisible, setIsVisible] = useState(false);
-  const [activeLogTab, setActiveLogTab] = useState('all');
+  const [activeLogTab, setActiveLogTab] = useState("all");
 
   const getActionIcon = (type: string) => {
     switch (type) {
-      case 'chat': return <MessageSquare className="h-4 w-4" />;
-      case 'code_generation': return <Code className="h-4 w-4" />;
-      case 'file_creation': return <FileText className="h-4 w-4" />;
-      case 'error_analysis': return <AlertTriangle className="h-4 w-4" />;
-      case 'improvement_suggestion': return <Sparkles className="h-4 w-4" />;
-      default: return <Clock className="h-4 w-4" />;
+      case "chat":
+        return <MessageSquare className="h-4 w-4" />;
+      case "code_generation":
+        return <Code className="h-4 w-4" />;
+      case "file_creation":
+        return <FileText className="h-4 w-4" />;
+      case "error_analysis":
+        return <AlertTriangle className="h-4 w-4" />;
+      case "improvement_suggestion":
+        return <Sparkles className="h-4 w-4" />;
+      default:
+        return <Clock className="h-4 w-4" />;
     }
   };
 
   const getStatusIcon = (status: string) => {
     switch (status) {
-      case 'completed': return <CheckCircle className="h-3 w-3 text-green-500" />;
-      case 'error': return <XCircle className="h-3 w-3 text-red-500" />;
-      default: return <Clock className="h-3 w-3 text-yellow-500" />;
+      case "completed":
+        return <CheckCircle className="h-3 w-3 text-green-500" />;
+      case "error":
+        return <XCircle className="h-3 w-3 text-red-500" />;
+      default:
+        return <Clock className="h-3 w-3 text-yellow-500" />;
     }
   };
 
   const getActionColor = (type: string) => {
     switch (type) {
-      case 'chat': return 'bg-blue-500';
-      case 'code_generation': return 'bg-green-500';
-      case 'file_creation': return 'bg-purple-500';
-      case 'error_analysis': return 'bg-red-500';
-      case 'improvement_suggestion': return 'bg-yellow-500';
-      default: return 'bg-gray-500';
+      case "chat":
+        return "bg-blue-500";
+      case "code_generation":
+        return "bg-green-500";
+      case "file_creation":
+        return "bg-purple-500";
+      case "error_analysis":
+        return "bg-red-500";
+      case "improvement_suggestion":
+        return "bg-yellow-500";
+      default:
+        return "bg-gray-500";
     }
   };
 
-  const filteredActions = actions.filter(action => {
-    if (activeLogTab === 'all') return true;
+  const filteredActions = actions.filter((action) => {
+    if (activeLogTab === "all") return true;
     return action.type === activeLogTab;
   });
 
@@ -65,20 +86,20 @@ export function ActionLogger({ actions }: ActionLoggerProps) {
     const logData = {
       timestamp: new Date().toISOString(),
       totalActions: actions.length,
-      actions: actions.map(action => ({
+      actions: actions.map((action) => ({
         ...action,
-        timestamp: action.timestamp.toISOString()
-      }))
+        timestamp: action.timestamp.toISOString(),
+      })),
     };
 
-    const blob = new Blob([JSON.stringify(logData, null, 2)], { 
-      type: 'application/json' 
+    const blob = new Blob([JSON.stringify(logData, null, 2)], {
+      type: "application/json",
     });
-    
+
     const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
+    const a = document.createElement("a");
     a.href = url;
-    a.download = `josey-ai-logs-${new Date().toISOString().split('T')[0]}.json`;
+    a.download = `josey-ai-logs-${new Date().toISOString().split("T")[0]}.json`;
     a.click();
     URL.revokeObjectURL(url);
   };
@@ -112,11 +133,7 @@ export function ActionLogger({ actions }: ActionLoggerProps) {
               </CardDescription>
             </div>
             <div className="flex gap-1">
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={exportLogs}
-              >
+              <Button variant="outline" size="sm" onClick={exportLogs}>
                 <Download className="h-3 w-3" />
               </Button>
               <Button
@@ -131,7 +148,11 @@ export function ActionLogger({ actions }: ActionLoggerProps) {
         </CardHeader>
 
         <CardContent className="flex-1 flex flex-col p-3 overflow-hidden">
-          <Tabs value={activeLogTab} onValueChange={setActiveLogTab} className="h-full flex flex-col">
+          <Tabs
+            value={activeLogTab}
+            onValueChange={setActiveLogTab}
+            className="h-full flex flex-col"
+          >
             <TabsList className="grid w-full grid-cols-4 mb-3">
               <TabsTrigger value="all" className="text-xs">
                 All ({actions.length})
@@ -154,7 +175,8 @@ export function ActionLogger({ actions }: ActionLoggerProps) {
                     <div className="text-center py-12">
                       <FileText className="h-12 w-12 mx-auto mb-4 text-gray-400" />
                       <p className="text-sm text-muted-foreground">
-                        No {activeLogTab === 'all' ? 'actions' : activeLogTab} logged yet
+                        No {activeLogTab === "all" ? "actions" : activeLogTab}{" "}
+                        logged yet
                       </p>
                     </div>
                   ) : (
@@ -162,14 +184,16 @@ export function ActionLogger({ actions }: ActionLoggerProps) {
                       <Card key={action.id} className="text-sm">
                         <CardContent className="p-3">
                           <div className="flex items-start gap-3">
-                            <div className={`p-1.5 rounded-full ${getActionColor(action.type)} text-white flex-shrink-0`}>
+                            <div
+                              className={`p-1.5 rounded-full ${getActionColor(action.type)} text-white flex-shrink-0`}
+                            >
                               {getActionIcon(action.type)}
                             </div>
-                            
+
                             <div className="flex-1 min-w-0">
                               <div className="flex items-center justify-between mb-1">
                                 <Badge variant="outline" className="text-xs">
-                                  {action.type.replace('_', ' ')}
+                                  {action.type.replace("_", " ")}
                                 </Badge>
                                 <div className="flex items-center gap-1">
                                   {getStatusIcon(action.status)}
@@ -178,23 +202,27 @@ export function ActionLogger({ actions }: ActionLoggerProps) {
                                   </span>
                                 </div>
                               </div>
-                              
+
                               <div className="space-y-2">
                                 <div>
-                                  <div className="text-xs text-muted-foreground mb-1">Input:</div>
+                                  <div className="text-xs text-muted-foreground mb-1">
+                                    Input:
+                                  </div>
                                   <div className="text-xs bg-muted p-2 rounded">
-                                    {action.input.length > 100 
-                                      ? `${action.input.substring(0, 100)}...` 
+                                    {action.input.length > 100
+                                      ? `${action.input.substring(0, 100)}...`
                                       : action.input}
                                   </div>
                                 </div>
-                                
+
                                 {action.output && (
                                   <div>
-                                    <div className="text-xs text-muted-foreground mb-1">Output:</div>
+                                    <div className="text-xs text-muted-foreground mb-1">
+                                      Output:
+                                    </div>
                                     <div className="text-xs bg-muted p-2 rounded">
-                                      {action.output.length > 100 
-                                        ? `${action.output.substring(0, 100)}...` 
+                                      {action.output.length > 100
+                                        ? `${action.output.substring(0, 100)}...`
                                         : action.output}
                                     </div>
                                   </div>

@@ -1,17 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { ScrollArea } from '@/components/ui/scroll-area';
-import { 
-  Camera, 
-  RotateCcw, 
-  Clock, 
-  FileText, 
+import React, { useState, useEffect } from "react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import {
+  Camera,
+  RotateCcw,
+  Clock,
+  FileText,
   Download,
   Trash2,
-  Eye
-} from 'lucide-react';
+  Eye,
+} from "lucide-react";
 
 interface Snapshot {
   id: string;
@@ -39,32 +45,40 @@ export function ProjectSnapshot({ project, onRestore }: ProjectSnapshotProps) {
     // Load snapshots from localStorage (in real implementation, this would be from a database)
     const mockSnapshots: Snapshot[] = [
       {
-        id: '1',
+        id: "1",
         projectId: project.id,
         timestamp: new Date(Date.now() - 3600000), // 1 hour ago
-        description: 'Initial project setup',
+        description: "Initial project setup",
         filesCount: 3,
-        size: '2.1 KB',
-        changes: ['Created App.tsx', 'Added package.json', 'Initial commit']
+        size: "2.1 KB",
+        changes: ["Created App.tsx", "Added package.json", "Initial commit"],
       },
       {
-        id: '2',
+        id: "2",
         projectId: project.id,
         timestamp: new Date(Date.now() - 1800000), // 30 minutes ago
-        description: 'Added component structure',
+        description: "Added component structure",
         filesCount: 5,
-        size: '4.7 KB',
-        changes: ['Added Button component', 'Created components folder', 'Updated styles']
+        size: "4.7 KB",
+        changes: [
+          "Added Button component",
+          "Created components folder",
+          "Updated styles",
+        ],
       },
       {
-        id: '3',
+        id: "3",
         projectId: project.id,
         timestamp: new Date(Date.now() - 600000), // 10 minutes ago
-        description: 'Before AI optimization',
+        description: "Before AI optimization",
         filesCount: 6,
-        size: '6.2 KB',
-        changes: ['Added error handling', 'Optimized performance', 'Updated types']
-      }
+        size: "6.2 KB",
+        changes: [
+          "Added error handling",
+          "Optimized performance",
+          "Updated types",
+        ],
+      },
     ];
 
     setSnapshots(mockSnapshots);
@@ -78,23 +92,29 @@ export function ProjectSnapshot({ project, onRestore }: ProjectSnapshotProps) {
       description: `Manual snapshot - ${new Date().toLocaleTimeString()}`,
       filesCount: Object.keys(project.files).length,
       size: calculateProjectSize(),
-      changes: ['Manual snapshot created']
+      changes: ["Manual snapshot created"],
     };
 
     // Store snapshot (in real implementation, this would be persisted)
-    localStorage.setItem(`snapshot_${snapshot.id}`, JSON.stringify({
-      ...snapshot,
-      files: project.files
-    }));
+    localStorage.setItem(
+      `snapshot_${snapshot.id}`,
+      JSON.stringify({
+        ...snapshot,
+        files: project.files,
+      }),
+    );
 
-    setSnapshots(prev => [snapshot, ...prev]);
+    setSnapshots((prev) => [snapshot, ...prev]);
   };
 
   const calculateProjectSize = () => {
-    const totalSize = Object.values(project.files).reduce((acc: number, content: any) => {
-      return acc + (content as string).length;
-    }, 0);
-    
+    const totalSize = Object.values(project.files).reduce(
+      (acc: number, content: any) => {
+        return acc + (content as string).length;
+      },
+      0,
+    );
+
     if (totalSize < 1024) return `${totalSize} B`;
     if (totalSize < 1024 * 1024) return `${(totalSize / 1024).toFixed(1)} KB`;
     return `${(totalSize / (1024 * 1024)).toFixed(1)} MB`;
@@ -102,16 +122,16 @@ export function ProjectSnapshot({ project, onRestore }: ProjectSnapshotProps) {
 
   const deleteSnapshot = (snapshotId: string) => {
     localStorage.removeItem(`snapshot_${snapshotId}`);
-    setSnapshots(prev => prev.filter(s => s.id !== snapshotId));
+    setSnapshots((prev) => prev.filter((s) => s.id !== snapshotId));
   };
 
   const downloadSnapshot = (snapshot: Snapshot) => {
     const snapshotData = localStorage.getItem(`snapshot_${snapshot.id}`);
     if (!snapshotData) return;
 
-    const blob = new Blob([snapshotData], { type: 'application/json' });
+    const blob = new Blob([snapshotData], { type: "application/json" });
     const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
+    const a = document.createElement("a");
     a.href = url;
     a.download = `${project.name}-snapshot-${snapshot.id}.json`;
     a.click();
@@ -151,11 +171,16 @@ export function ProjectSnapshot({ project, onRestore }: ProjectSnapshotProps) {
             </div>
           ) : (
             snapshots.map((snapshot) => (
-              <Card key={snapshot.id} className="hover:shadow-md transition-shadow">
+              <Card
+                key={snapshot.id}
+                className="hover:shadow-md transition-shadow"
+              >
                 <CardHeader className="pb-2">
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
-                      <CardTitle className="text-base">{snapshot.description}</CardTitle>
+                      <CardTitle className="text-base">
+                        {snapshot.description}
+                      </CardTitle>
                       <CardDescription className="flex items-center gap-2 mt-1">
                         <Clock className="h-3 w-3" />
                         {snapshot.timestamp.toLocaleString()}
@@ -181,7 +206,10 @@ export function ProjectSnapshot({ project, onRestore }: ProjectSnapshotProps) {
                       <div className="text-sm font-medium mb-1">Changes:</div>
                       <div className="space-y-1">
                         {snapshot.changes.slice(0, 3).map((change, index) => (
-                          <div key={index} className="text-xs text-muted-foreground flex items-center gap-1">
+                          <div
+                            key={index}
+                            className="text-xs text-muted-foreground flex items-center gap-1"
+                          >
                             <div className="w-1 h-1 bg-gray-400 rounded-full" />
                             {change}
                           </div>
@@ -196,8 +224,8 @@ export function ProjectSnapshot({ project, onRestore }: ProjectSnapshotProps) {
                   )}
 
                   <div className="flex gap-2 pt-2">
-                    <Button 
-                      size="sm" 
+                    <Button
+                      size="sm"
                       variant="outline"
                       onClick={() => onRestore(snapshot.id)}
                       className="flex-1"
@@ -205,24 +233,21 @@ export function ProjectSnapshot({ project, onRestore }: ProjectSnapshotProps) {
                       <RotateCcw className="h-3 w-3 mr-1" />
                       Restore
                     </Button>
-                    
-                    <Button 
-                      size="sm" 
+
+                    <Button
+                      size="sm"
                       variant="outline"
                       onClick={() => downloadSnapshot(snapshot)}
                     >
                       <Download className="h-3 w-3" />
                     </Button>
-                    
-                    <Button 
-                      size="sm" 
-                      variant="outline"
-                    >
+
+                    <Button size="sm" variant="outline">
                       <Eye className="h-3 w-3" />
                     </Button>
-                    
-                    <Button 
-                      size="sm" 
+
+                    <Button
+                      size="sm"
                       variant="outline"
                       onClick={() => deleteSnapshot(snapshot.id)}
                       className="text-red-600 hover:text-red-700"

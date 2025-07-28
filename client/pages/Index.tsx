@@ -1,19 +1,25 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { 
-  ArrowRight, 
-  Github, 
-  Bot, 
-  Zap, 
-  Globe, 
-  BarChart3, 
+import {
+  ArrowRight,
+  Github,
+  Bot,
+  Zap,
+  Globe,
+  BarChart3,
   Shield,
   Code,
   Rocket,
   Sparkles,
   CheckCircle,
-  Star
+  Star,
 } from "lucide-react";
 import { useSession } from "@/components/providers/auth-provider";
 import { useNavigate } from "react-router-dom";
@@ -27,7 +33,7 @@ export default function Index() {
 
   useEffect(() => {
     if (session) {
-      navigate('/dashboard');
+      navigate("/dashboard");
     }
   }, [session, navigate]);
 
@@ -44,33 +50,39 @@ export default function Index() {
     {
       icon: Bot,
       title: "Josey AI Assistant",
-      description: "Real-time code generation, debugging, and intelligent suggestions with auto-execution after 5 seconds"
+      description:
+        "Real-time code generation, debugging, and intelligent suggestions with auto-execution after 5 seconds",
     },
     {
       icon: Code,
       title: "Live Code Editor",
-      description: "Professional Monaco editor with AI-powered completions and instant error detection"
+      description:
+        "Professional Monaco editor with AI-powered completions and instant error detection",
     },
     {
       icon: Github,
       title: "GitHub Integration",
-      description: "Connect repos, auto-setup CI/CD pipelines, and create pull requests with one click"
+      description:
+        "Connect repos, auto-setup CI/CD pipelines, and create pull requests with one click",
     },
     {
       icon: Sparkles,
       title: "Quick Start Templates",
-      description: "Generate full-stack apps, websites, videos, and designs from simple prompts"
+      description:
+        "Generate full-stack apps, websites, videos, and designs from simple prompts",
     },
     {
       icon: Rocket,
       title: "Instant Deployment",
-      description: "Live preview, version snapshots, and automated deployment with rollback capabilities"
+      description:
+        "Live preview, version snapshots, and automated deployment with rollback capabilities",
     },
     {
       icon: BarChart3,
       title: "Smart Logging",
-      description: "Detailed action logs, error tracking, and project state management with recovery options"
-    }
+      description:
+        "Detailed action logs, error tracking, and project state management with recovery options",
+    },
   ];
 
   const plans = [
@@ -82,10 +94,10 @@ export default function Index() {
         "1 project",
         "25 AI edits",
         "Community support",
-        "Basic analytics"
+        "Basic analytics",
       ],
       button: "Start Free",
-      popular: false
+      popular: false,
     },
     {
       name: "Premium",
@@ -97,11 +109,11 @@ export default function Index() {
         "Priority support",
         "Advanced analytics",
         "Custom domains",
-        "Team collaboration"
+        "Team collaboration",
       ],
       button: "Start Premium",
-      popular: true
-    }
+      popular: true,
+    },
   ];
 
   return (
@@ -115,25 +127,31 @@ export default function Index() {
               <Sparkles className="h-4 w-4 mr-2" />
               Powered by AI
             </Badge>
-            
+
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
               Code with
               <span className="bg-gradient-to-r from-brand-500 to-brand-700 bg-clip-text text-transparent">
-                {" "}Josey AI
+                {" "}
+                Josey AI
               </span>
             </h1>
 
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              The AI-powered development workspace that writes code, fixes bugs, and deploys your projects.
-              Start building instantly with our intelligent assistant that learns and adapts to your coding style.
+              The AI-powered development workspace that writes code, fixes bugs,
+              and deploys your projects. Start building instantly with our
+              intelligent assistant that learns and adapts to your coding style.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" onClick={() => setShowAIWorkspace(true)}>
                 Start Building Now
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button variant="outline" size="lg" onClick={() => navigate('/auth/signin')}>
+              <Button
+                variant="outline"
+                size="lg"
+                onClick={() => navigate("/auth/signin")}
+              >
                 Sign In
               </Button>
             </div>
@@ -164,8 +182,9 @@ export default function Index() {
               AI-Powered Development Workspace
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Experience the future of coding with Josey AI. Get intelligent code suggestions,
-              automated debugging, and instant deployment in one seamless workspace.
+              Experience the future of coding with Josey AI. Get intelligent
+              code suggestions, automated debugging, and instant deployment in
+              one seamless workspace.
             </p>
           </div>
 
@@ -173,7 +192,10 @@ export default function Index() {
             {features.map((feature) => {
               const Icon = feature.icon;
               return (
-                <Card key={feature.title} className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+                <Card
+                  key={feature.title}
+                  className="border-0 shadow-lg hover:shadow-xl transition-shadow"
+                >
                   <CardHeader>
                     <div className="h-12 w-12 bg-gradient-to-br from-brand-500 to-brand-700 rounded-lg flex items-center justify-center mb-4">
                       <Icon className="h-6 w-6 text-white" />
@@ -204,7 +226,10 @@ export default function Index() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {plans.map((plan) => (
-              <Card key={plan.name} className={`relative ${plan.popular ? 'border-brand-500 shadow-lg' : ''}`}>
+              <Card
+                key={plan.name}
+                className={`relative ${plan.popular ? "border-brand-500 shadow-lg" : ""}`}
+              >
                 {plan.popular && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                     <Badge className="bg-gradient-to-r from-brand-500 to-brand-700">
@@ -213,7 +238,7 @@ export default function Index() {
                     </Badge>
                   </div>
                 )}
-                
+
                 <CardHeader className="text-center">
                   <CardTitle className="text-2xl">{plan.name}</CardTitle>
                   <div className="flex items-baseline justify-center gap-1">
@@ -233,10 +258,10 @@ export default function Index() {
                     ))}
                   </ul>
 
-                  <Button 
-                    className="w-full" 
+                  <Button
+                    className="w-full"
                     variant={plan.popular ? "default" : "outline"}
-                    onClick={() => navigate('/auth/signin')}
+                    onClick={() => navigate("/auth/signin")}
                   >
                     {plan.button}
                   </Button>
@@ -254,14 +279,24 @@ export default function Index() {
             Try Josey AI Right Now
           </h2>
           <p className="text-xl opacity-90 max-w-2xl mx-auto">
-            No signup required. Start coding with AI assistance in your browser instantly.
+            No signup required. Start coding with AI assistance in your browser
+            instantly.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" onClick={() => setShowAIWorkspace(true)}>
+            <Button
+              size="lg"
+              variant="secondary"
+              onClick={() => setShowAIWorkspace(true)}
+            >
               Launch AI Workspace
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-700" onClick={() => navigate('/auth/signin')}>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white text-white hover:bg-white hover:text-brand-700"
+              onClick={() => navigate("/auth/signin")}
+            >
               Sign Up for Full Access
             </Button>
           </div>
@@ -276,17 +311,23 @@ export default function Index() {
               <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-brand-500 to-brand-700" />
               <span className="text-xl font-bold">CodeFlow AI</span>
             </div>
-            
+
             <div className="flex items-center space-x-6 text-sm text-muted-foreground">
-              <a href="/privacy" className="hover:text-foreground">Privacy Policy</a>
-              <a href="/terms" className="hover:text-foreground">Terms of Service</a>
-              <a href="/support" className="hover:text-foreground">Support</a>
+              <a href="/privacy" className="hover:text-foreground">
+                Privacy Policy
+              </a>
+              <a href="/terms" className="hover:text-foreground">
+                Terms of Service
+              </a>
+              <a href="/support" className="hover:text-foreground">
+                Support
+              </a>
               <a href="https://github.com" className="hover:text-foreground">
                 <Github className="h-5 w-5" />
               </a>
             </div>
           </div>
-          
+
           <div className="mt-8 pt-8 border-t text-center text-sm text-muted-foreground">
             © 2024 CodeFlow AI. All rights reserved. Powered by clean8.online
           </div>
