@@ -17,11 +17,13 @@ import {
 } from "lucide-react";
 import { useSession } from "@/components/providers/auth-provider";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { AIDevelopmentEnvironment } from "@/components/ai-workspace/ai-development-environment";
 
 export default function Index() {
   const { data: session } = useSession();
   const navigate = useNavigate();
+  const [showAIWorkspace, setShowAIWorkspace] = useState(false);
 
   useEffect(() => {
     if (session) {
@@ -31,6 +33,11 @@ export default function Index() {
 
   if (session) {
     return null; // Will redirect to dashboard
+  }
+
+  // Show AI workspace if user wants to start building
+  if (showAIWorkspace) {
+    return <AIDevelopmentEnvironment />;
   }
 
   const features = [
