@@ -161,11 +161,11 @@ export default function Index() {
         <div className="container">
           <div className="text-center space-y-4 mb-16">
             <h2 className="text-3xl md:text-4xl font-bold">
-              Everything you need to build faster
+              AI-Powered Development Workspace
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              From idea to deployment, CodeFlow AI provides all the tools and AI assistance 
-              you need to build professional applications.
+              Experience the future of coding with Josey AI. Get intelligent code suggestions,
+              automated debugging, and instant deployment in one seamless workspace.
             </p>
           </div>
 
